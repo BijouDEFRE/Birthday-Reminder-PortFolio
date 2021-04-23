@@ -1,4 +1,4 @@
-.forget {
+.signup {
     width: 90vw;
     margin: 5rem auto;
     display: flex;
@@ -11,7 +11,7 @@
     box-shadow: var(--dark-shadow);
   }
   
-  .forget h2 {
+  .signup h2 {
     display: flex;
     margin: 0 0 2rem 0;
     padding: 0;
@@ -20,18 +20,18 @@
     text-align: center;
   }
   
-  .forget {
+  .signup {
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
   }
   
-  .forget .inputBox {
+  .signup .inputBox {
     position: relative;
     height: 80px;
   }
   
-  .forget .inputBox input {
+  .signup .inputBox input {
     width: 100%;
     padding: 10px 0;
     font-size: 17px;
@@ -44,7 +44,7 @@
     outline: none;
   }
   
-  .forget .inputBox label {
+  .signup .inputBox label {
     color: var(--clr-grey-5);
     position: absolute;
     top: 0;
@@ -58,8 +58,8 @@
     transition: 0.2s ease-in;
   }
   
-  .forget .inputBox input:focus~label,
-  .forget .inputBox input:valid~label {
+  .signup .inputBox input:focus~label,
+  .signup .inputBox input:valid~label {
     top: -30px;
     left: 0;
     color: var(--clr-grey-6);
@@ -68,10 +68,10 @@
   }
 
   .linkContainer {
-      line-height: 2rem;
+    text-align: center;
   }
   
-  .linkforget {
+  .linksignup {
     margin-top: 1rem;
     text-align: center;
   }

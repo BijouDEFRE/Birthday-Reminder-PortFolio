@@ -14,6 +14,12 @@
     width: 100%;
 }
 
+.homePage:hover img {
+    transform:rotate(5deg) scale(1.2);
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
 .homePage_title h1 {
     font-size: 4rem;
     text-align: center;

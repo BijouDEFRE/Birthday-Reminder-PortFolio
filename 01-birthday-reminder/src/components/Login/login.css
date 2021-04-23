@@ -1,0 +1,92 @@
+.login {
+    width: 90vw;
+    margin: 5rem auto;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    max-width: var(--fixed-width);
+    background: var(--clr-white);
+    border-radius: var(--radius);
+    padding: 1.5rem 2rem;
+    box-shadow: var(--dark-shadow);
+  }
+  
+  .login h2 {
+    display: flex;
+    margin: 0 0 2rem 0;
+    padding: 0;
+    color: var(--clr-grey-9);
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+  .login {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .login .inputBox {
+    position: relative;
+    height: 80px;
+  }
+  
+  .login .inputBox input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 17px;
+    color: var(--clr-primary-9);
+    font-weight: bold;
+    margin-bottom: 30px;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid var(--clr-grey-3);
+    outline: none;
+  }
+  
+  .login .inputBox label {
+    color: var(--clr-grey-5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 17px;
+    pointer-events: none;
+    -webkit-transition: 0.2s ease-in;
+    -moz-transition: 0.2s ease-in;
+    -o-transition: 0.2s ease-in;
+    transition: 0.2s ease-in;
+  }
+  
+  .login .inputBox input:focus~label,
+  .login .inputBox input:valid~label {
+    top: -30px;
+    left: 0;
+    color: var(--clr-grey-6);
+    font-size: 16px;
+    font-style: italic;
+  }
+
+  .linkContainer {
+      line-height: 2rem;
+  }
+  
+  .linklogin {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  
+  .simpleLink a{
+    color: var(--clr-primary-6);
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+  
+  .simpleLink a:hover {
+    color: var(--clr-red-dark);
+  }
+  
+  .btn {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }

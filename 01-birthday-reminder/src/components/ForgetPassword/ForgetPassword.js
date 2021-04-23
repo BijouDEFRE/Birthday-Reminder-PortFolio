@@ -1,6 +1,8 @@
 // Functionals import
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Button from '../Button/Button';
+// Import context
 import { FirebaseContext } from '../Firebase';
 // Esthetics import
 import './forgetPassword.css';
@@ -52,7 +54,7 @@ const ForgetPassword = (props) => {
             <div className="formBoxLeftForget">
                 </div>
                 <div className="formBoxRight">
-                    <div className="formContent">
+                    <div className="forget">
 
                         {/* Gestion de l'affichage du message */}
                         { success && <span style={{
@@ -71,7 +73,7 @@ const ForgetPassword = (props) => {
                                 <label htmlFor="email">Email</label>
                             </div>
 
-                            <button disabled={disabled}>Récupérer</button>
+                            <Button disabled={disabled}>Récupérer</Button>
 
                         </form>
                         <div className="linkContainer">

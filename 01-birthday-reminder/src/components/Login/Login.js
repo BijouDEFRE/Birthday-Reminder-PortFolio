@@ -1,6 +1,7 @@
 // Functionals import
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Button from '../Button/Button';
 // Import context
 import { FirebaseContext } from '../Firebase';
 // Esthetics import
@@ -54,7 +55,7 @@ const Login = (props) => {
             <div className="formBoxLeftLogin">
                 </div>
                 <div className="formBoxRight">
-                    <div className="formContent">
+                    <div className="login">
 
                         {error !== '' && <span>{error.message}</span>}
                         
@@ -71,11 +72,11 @@ const Login = (props) => {
                                 <label htmlFor="password">Mot de passe</label>
                             </div>
 
-                            { btn ? <button>Connexion</button> : <button disabled>Connexion</button> }
+                            { btn ? <Button>Connexion</Button> : <Button disabled>Connexion</Button> }
 
                         </form>
                         <div className="linkContainer">
-                            <Link className="simpleLink" to="/signup">Nouveau sur Marvel Quiz ? Insrivez-vous maintenant.</Link>
+                            <Link className="simpleLink" to="/signup">Nouveau ? Insrivez-vous maintenant.</Link>
                             <br />
                             <Link className="simpleLink" to="/forgetpassword">Mot de passe oublié ?</Link>
                         </div>

@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { FirebaseContext } from '../Firebase';
 import { Link } from 'react-router-dom';
+import Button from '../Button/Button';
+import './signup.css'
 
 const Signup = (props) => {
 
@@ -45,18 +47,18 @@ const Signup = (props) => {
     const { pseudo, email, password, confirmPassword } = loginData;
 
     const btn = pseudo === '' || email === '' || password === '' || password !== confirmPassword
-    ? <button className="btn-welcome" disabled>Inscrition</button> : <button className="btn-welcome">Inscrition</button>
+    ? <Button disabled>Inscription</Button> : <Button>Inscription</Button>
 
     // gestion des erreurs
     const errorMsg = error !== '' && <span>{error.message}</span>
 
     return (
         <div className="signUpLoginBox">
-            <div className="slContainer">
+            <div className="slsignup">
                 <div className="formBoxLeftSignup">
                 </div>
                 <div className="formBoxRight">
-                    <div className="formContent">
+                    <div className="signup">
                         
                         {errorMsg}
 
@@ -84,7 +86,7 @@ const Signup = (props) => {
 
                             {btn}           
                         </form>
-                        <div className="linkContainer">
+                        <div className="linksignup">
                             <Link className="simpleLink" to="/login">Déjà inscrit ? Connectez-vous.</Link>
                         </div>
                     </div>
