@@ -4,6 +4,7 @@ import React, { Fragment } from 'react';
 const List = ({people}) => {
 
   return (
+    
     <Fragment>
       {/* here we use the props for recup data from data */}
       {people.map((person) => {

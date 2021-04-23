@@ -1,0 +1,24 @@
+.homePage{
+    width: 90vw;
+    margin: 5rem auto;
+    display: flex;
+    justify-content: space-between;
+    max-width: var(--fixed-width);
+    background: var(--clr-white);
+    border-radius: var(--radius);
+    padding: 1.5rem 2rem;
+    box-shadow: var(--dark-shadow);
+}
+
+.homePage img {
+    width: 100%;
+}
+
+.homePage_title h1 {
+    font-size: 4rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+    text-transform: none;
+    margin-bottom: 2rem;
+}

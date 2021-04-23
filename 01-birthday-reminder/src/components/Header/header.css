@@ -1,0 +1,17 @@
+.header-container {
+    padding-top: 2rem;
+    margin: 0 auto;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+  
+.header-container_title h1{
+    font-size: 4rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+    text-transform: none;
+    color: var(--clr-grey-9)
+}

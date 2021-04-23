@@ -1,0 +1,7 @@
+.footer-container{
+    text-align: center;
+    padding-top: 1.8em;
+  }
+  .footer-container p{
+    color: var(--clr-white);
+  }
