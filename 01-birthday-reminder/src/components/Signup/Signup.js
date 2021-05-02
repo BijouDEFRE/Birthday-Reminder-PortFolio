@@ -20,7 +20,7 @@ const Signup = (props) => {
     const [error, setError] = useState('');
 
     const handleChange = event => {
-        setloginData({...loginData, [event.target.id]: event.target.value})
+        setloginData({...loginData, [event.target.id]: event.target.value});
     }
 
     const handleSubmit = event => {
@@ -29,7 +29,7 @@ const Signup = (props) => {
         // création de la BDD avec Firestore cloud (noSQL)
         firebase.signupUser(email, password)
         .then(authUser => {
-            return firebase.user(authUser.user.userId).set({
+            return firebase.user(authUser.user.uid).set({
                 pseudo,
                 email
             })

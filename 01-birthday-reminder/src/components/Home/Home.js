@@ -3,10 +3,10 @@ import React, { useRef, useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
 // Components import
-import List from '../List/List';
-import Login from '../Login/Login';
-import Signup from '../Signup/Signup';
-import ForgetPassword from '../ForgetPassword/ForgetPassword';
+// import List from '../List/List';
+// import Login from '../Login/Login';
+// import Signup from '../Signup/Signup';
+// import ForgetPassword from '../ForgetPassword/ForgetPassword';
 
 import '../Home/home.css';
 
