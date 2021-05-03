@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './assets/index.css';
 import App from './components/App/App';
-import Firebase, { FirebaseContext } from './components/Firebase';
 import reportWebVitals from './reportWebVitals';
+import Firebase, { FirebaseContext } from './components/Firebase';
 
 ReactDOM.render(
   <React.StrictMode>

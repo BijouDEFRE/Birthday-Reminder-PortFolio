@@ -29,14 +29,14 @@ const Signup = (props) => {
         // création de la BDD avec Firestore cloud (noSQL)
         firebase.signupUser(email, password)
         .then(authUser => {
-            return firebase.user(authUser.user.userId).set({
+            return firebase.user(authUser.user.uid).set({
                 pseudo,
                 email
             })
         })
         .then(() => {
             setloginData({...data});
-            props.history.push('/welcome')
+            props.history.push('/list')
         })
         .catch(error => {
             setError(error);

@@ -35,7 +35,7 @@ class Firebase {
 
     /*Exemple fourni par la Doc de Firebase :
     https://firebase.google.com/docs/firestore/data-model */
-    user = userId => this.db.doc(`users/${userId}`);
+    user = uid => this.db.doc(`users/${uid}`);
 }
 
 export default Firebase;

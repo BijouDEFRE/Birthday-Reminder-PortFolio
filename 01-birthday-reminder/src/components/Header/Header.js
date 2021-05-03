@@ -1,7 +1,6 @@
 // Functionals import
 import React from 'react';
 // Esthetics import
-import Cake from '../../assets/images/Cake.png';
 import './header.css';
 import '../../assets/index.css';
 

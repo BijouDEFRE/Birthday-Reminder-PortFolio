@@ -1,5 +1,5 @@
 // Functionals import
-import React, { useState } from 'react';
+import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Components import
 import Header from '../Header/Header';
@@ -9,34 +9,21 @@ import List from '../List/List';
 import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
 import ForgetPassword from '../ForgetPassword/ForgetPassword';
-// Datas import
-import data from '../../assets/data/data.json';
 
 function App() {
   
-  // import the array from "data"
-  const [people, setPeople] = useState(data);
-  console.log(people);
-
   return (
     <Router>
       <Header />
 
         <Switch>
+          <Fragment>
           <Route exact path="/" component={Home} />
+          <Route path="/list" component={List} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/forgetpassword" component={ForgetPassword} />
-          <main>
-            <section className="container">
-              <h3>{people.length} birthdays today</h3>
-                <List people={people}/>
-                {/* here we recup the new state for iterate new array */}
-                <button onClick={() => setPeople([])}>
-                  clear all
-                </button>
-            </section>
-          </main>
+          </Fragment>
         </Switch>
 
       <Footer />

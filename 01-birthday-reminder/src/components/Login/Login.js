@@ -38,9 +38,10 @@ const Login = (props) => {
 
         firebase.loginUser(email, password)
         .then(user => {
+            console.log(user)
             setEmail('');
             setPassword('');
-            props.history.push('/welcome')
+            props.history.push('/list')
         })
         .catch(error => {
             setError(error);
