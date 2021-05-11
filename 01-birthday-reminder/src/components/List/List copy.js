@@ -7,13 +7,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import Logout from '../Logout/Logout';
 import Loader from '../Loader/Loader';
 import Button from '../Button/Button';
+// import Friends from '../Friends/Friends';
 import Create from '../Create/Create';
 import Modal from '../Modal/Modal';
-import UploadFriendModal from '../Modal/UploadFriendModal';
-
 import { RiPencilLine } from 'react-icons/ri'
 import { RiDeleteBin2Line } from 'react-icons/ri'
 import './list.css';
+import { queryByDisplayValue } from '@testing-library/dom';
 
 // create a variable for use in a new array
 const List = props => {
@@ -100,76 +100,63 @@ const List = props => {
    // To open Modal
    const openModal = event => {
     // console.log('show');
-    setShowModal(true)
+    setShowModal(prevent => !prevent)
     // console.log(showModal);
   }
 
   // To close Modal
   const closeModal = event => {
     // console.log('show');
-    setShowModal(false)
+    setShowModal(prevent => !prevent)
     // console.log(showModal);
   }
 
    // To open UploadModal
    const openUploadModal = () => {
-    setShowUpdateModal(true)
+    setShowUpdateModal((prev) => !prev)
   }
 
   // To close UploadModal
   const closeUploadModal = () => {
-    setShowUpdateModal(false)
+    setShowUpdateModal((prev) => !prev)
   }
 
-  if (showModal) {
-    return (
-      <Modal showModal={showModal} >
-        <div className="container">
-          <p className="close" onClick={closeModal}>Fermer la fenêtre</p>
-        <Create closeModal={closeModal}/>
-        </div>
-      </Modal>
-    )
-  } else if (showUpdateModal) {
-    return (
-      <UploadFriendModal showUpdateModal={showUpdateModal}>
-        <div className="container">
-          <p className="close" onClick={closeUploadModal}>Fermer la fenêtre</p>
-          <Create closeModal={closeModal}/>
-        </div>
-      </UploadFriendModal>
-    )
-  } else {
-    return (
-      <Fragment>
-        <div className="container">
-        <Logout userData={userData} />
-        <h3>{`Vous avez ${friends.length} amis enregistrés`}</h3>
-          {friends.map((friend) => {
-            const { id, firstName, lastName, birthDate, fileUrl } = friend;
-            return (
-              <article key={id} className='person'>
-                <div className="person__avatar">
-                  <img src={fileUrl} alt={firstName} />
-                </div>
-                <div className="person__infos">
-                  <h4>{firstName + ' ' +lastName}</h4>
-                  <p>{birthDate}</p>
-                </div>
-                <div className="person__icons">
-                  <button onClick={() => openUploadModal(friend)}><RiPencilLine/></button>
-                  <button onClick={() => deleteFriend(friend)}><RiDeleteBin2Line/></button>
-                </div>
-              </article>
-            );
-          })}
-            <Button className="btn" type="button" onClick={openModal}>
-                Ajouter un Anniversaire
-            </Button>
-        </div>
-      </Fragment>
-    )
-  }
+  return showModal === true ? (
+    <Modal showModal={showModal} >
+      <div className="container">
+        <p className="close" onClick={closeModal}>Fermer la fenêtre</p>
+      <Create closeModal={closeModal}/>
+      </div>
+    </Modal>
+  ) : (
+    <Fragment>
+    <div className="container">
+    <Logout userData={userData} />
+    <h3>{`Vous avez ${friends.length} amis enregistrés`}</h3>
+      {friends.map((friend) => {
+        const { id, firstName, lastName, birthDate, fileUrl } = friend;
+        return (
+          <article key={id} className='person'>
+            <div className="person__avatar">
+              <img src={fileUrl} alt={firstName} />
+            </div>
+            <div className="person__infos">
+              <h4>{firstName + ' ' +lastName}</h4>
+              <p>{birthDate}</p>
+            </div>
+            <div className="person__icons">
+              <button onClick={(friend) => updateFriend(friend)}><RiPencilLine/></button>
+              <button onClick={() => deleteFriend(friend)}><RiDeleteBin2Line/></button>
+            </div>
+          </article>
+        );
+      })}
+        <Button className="btn" type="button" onClick={openModal}>
+            Ajouter un Anniversaire
+        </Button>
+    </div>
+    </Fragment>
+  )
 }
 
 export default List;

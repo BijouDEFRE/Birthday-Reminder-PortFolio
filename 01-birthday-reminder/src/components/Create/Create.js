@@ -3,7 +3,8 @@ import { FirebaseContext } from "../Firebase";
 import 'firebase/firestore';
 import "./create.css";
 
-const Create = () => {
+const Create = (props) => {
+  
   const firebase = useContext(FirebaseContext);
   // const [friend, setFriend] = useState([])
   const [firstName, setFirstName] = useState("");
@@ -19,6 +20,7 @@ const Create = () => {
     setLastName('')
     setBirthDate('')
     setProfilImage('');
+    props.closeModal()
   };
 
   const onFileChange = async (event) => {

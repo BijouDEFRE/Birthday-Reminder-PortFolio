@@ -1,17 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react';
 
 import './modal.css'
 
-const Modal = ({showModal, setShowModal, children}) => {
-
-  const [closeModal, setCloseModal] = useState(false)
-
-  
-  const hideModal = e => {
-    console.log('hide');
-    setCloseModal(!closeModal)
-    console.log(closeModal);
-  }
+const Modal = ({showModal, children}) => {
 
   return (
     showModal && (
@@ -22,4 +13,4 @@ const Modal = ({showModal, setShowModal, children}) => {
   )
 }
 
-export default Modal
+export default Modal;
