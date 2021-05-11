@@ -1,5 +1,76 @@
-.logoutContainer {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 30px;
-  }
+.btn:hover {
+  background-color: var(--clr-primary-6);
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start; */
+  /* align-items: center; */
+}
+
+.container h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.person {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+}
+
+.person__avatar {
+  display: flex;
+  justify-content: flex-start;
+  flex-basis: 20%;
+}
+
+.person__infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-basis: 70%;
+}
+
+.person__icons {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  /* flex-direction: column; */
+  height: 100%;
+}
+
+.person__icons button{
+  border: none;
+  background: none;
+  padding-right: 1em;
+  /* margin-left: 2em; */
+  /* padding: 0 0.5em; */
+  color: var(--clr-grey-4);
+  font-size: 1.5rem;
+}
+
+.person__icons button:last-child{
+  padding-right: 0em;
+  color: var(--clr-red-light);
+}
+
+/* .footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+} */
+
+.close {
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,48 @@
+.create {
+  display: table-cell;
+  width: 100%;
+}
+
+.create h4 {
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.form {
+  display: table-cell;
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+  align-items: center;
+  height: 3rem;
+}
+
+.form input {
+  width: 100%;
+  background: #f7f9fc;
+  border: none;
+  border-bottom: 1px solid #dfe7f1;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  color: inherit;
+  text-indent: 6px;
+  height: 2rem;
+  /* margin: 0.5em 0.8em; */
+}
+
+.form button {
+
+  cursor: pointer;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--clr-primary-6);
+}

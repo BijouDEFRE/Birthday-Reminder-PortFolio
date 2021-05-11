@@ -9,6 +9,7 @@ import './logout.css'
 
 const Logout = (props) => {
 
+    // console.log(props)
     // mise en place du context
     const firebase = useContext(FirebaseContext);
 
@@ -32,8 +33,7 @@ const Logout = (props) => {
 
     return (
         <div className="logoutContainer">
-            <p>List of birthday reminder of {props.userData.pseudo}</p>
-            {/* création du switch */}
+            <p>List of "Birthdays Reminder" of {props.userData.pseudo}</p>
             <label className="switch">
                 <input
                     // appel de la variable d'état

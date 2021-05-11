@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
-import { FirebaseContext } from '../Firebase';
 import { Link } from 'react-router-dom';
+import { FirebaseContext } from '../Firebase';
 import Button from '../Button/Button';
 import './signup.css'
 
@@ -43,6 +43,7 @@ const Signup = (props) => {
             setloginData({...data})
         })
     }
+    console.log(firebase.signupUser)
 
     const { pseudo, email, password, confirmPassword } = loginData;
 

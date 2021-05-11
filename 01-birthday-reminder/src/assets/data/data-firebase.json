@@ -1,42 +1,37 @@
 [
     {
-      "id": 1,
-      "name": "Bertie Yates",
-      "age": 29,
+      "firstName": "Bertie",
+      "lastName": "Yates",
       "birthdate": "1988-04-10",
-      "image":
+      "fileUrl":
         "https://res.cloudinary.com/diqqf3eq2/image/upload/v1595959131/person-2_ipcjws.jpg"
     },
     {
-      "id": 2,
-      "name": "Hester Hogan",
-      "age": 32,
+      "firstName": "Hester",
+      "lastName": "Hogan",
       "birthdate": "1974-04-11",
-      "image":
+      "fileUrl":
         "https://res.cloudinary.com/diqqf3eq2/image/upload/v1595959131/person-3_rxtqvi.jpg"
     },
     {
-      "id": 3,
-      "name": "Larry Little",
-      "age": 36,
+      "firstName": "Larry",
+      "lastName": "Little",
       "birthdate": "1982-04-12",
-      "image":
+      "fileUrl":
         "https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883423/person-4_t9nxjt.jpg"
     },
     {
-      "id": 4,
-      "name": "Sean Walsh",
-      "age": 34,
+      "firstName": "Sean",
+      "lastName": "Walsh",
       "birthdate": "1988-05-10",
-      "image":
+      "fileUrl":
         "https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883417/person-3_ipa0mj.jpg"
     },
     {
-      "id": 5,
-      "name": "Lola Gardner",
-      "age": 29,
+      "firstName": "Lola",
+      "lastName": "Gardner",
       "birthdate": "1980-02-08",
-      "image":
+      "fileUrl":
         "https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883334/person-1_rfzshl.jpg"
     }
 ]

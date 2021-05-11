@@ -1,26 +1,68 @@
 /* eslint-disable no-unused-expressions */
 import React, { useState, useContext, useEffect, Fragment } from 'react';
 import { FirebaseContext } from '../Firebase';
-import { ToastContainer, toast } from 'react-toastify';
+import app from 'firebase/app'
+import 'firebase/auth'
 import 'react-toastify/dist/ReactToastify.css';
 import Logout from '../Logout/Logout';
 import Loader from '../Loader/Loader';
-import People from '../People/People';
-// Datas import
-import data from '../../assets/data/data.json';
+import Button from '../Button/Button';
+// import Friends from '../Friends/Friends';
+import Create from '../Create/Create';
+import Modal from '../Modal/Modal';
+import { RiPencilLine } from 'react-icons/ri'
+import { RiDeleteBin2Line } from 'react-icons/ri'
 import './list.css';
 
 // create a variable for use in a new array
 const List = props => {
 
-  // Initialise userSession state
-  const [userSession, setUserSession] = useState(null);
-
   // Firebase context
   const firebase = useContext(FirebaseContext);
-  
-  const [userData, setUserData] = useState({});
+  // Get user from firebase
+  const userAuth = firebase.auth.X
 
+  // Initialise userSession state
+  const [userSession, setUserSession] = useState(null);
+  const [userData, setUserData] = useState({});
+  const [friends, setFriends] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    // To get friends for users account
+    app
+    .firestore()
+    .collection('users')
+    .doc(userAuth)
+    .collection('friends')
+    .onSnapshot((snapshot) => {
+      const newFriends = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data()
+      }))
+      setFriends(newFriends)
+    })
+  }, [])
+
+  // To delete Friends
+  function deleteFriend(friend) {
+    // console.log(friend.id)
+    app
+    .firestore()
+    .collection('users')
+    .doc(userAuth)
+    .collection('friends').doc(friend.id).delete()
+  }
+  // To update Friends
+  function updateFriend(friend) {
+    console.log(friend.id)
+    // app
+    // .firestore()
+    // .collection('users')
+    // .doc(userAuth)
+    // .collection('friends').doc(friend.id).delete()
+  }
+  
   useEffect(() => {
     // To listen if there is a autenticated user
     let listener = firebase.auth.onAuthStateChanged(user => {
@@ -39,11 +81,11 @@ const List = props => {
           const myData = doc.data()
           setUserData(myData)
         }
-    })
-    // If error clg error
-    .catch(error => {
-      console.log(error);
-    })
+      })
+      // If error clg error
+      .catch(error => {
+        console.log(error);
+      })
     }
     
     return () => {
@@ -51,25 +93,56 @@ const List = props => {
       listener()
     }
   }, [userSession, firebase, firebase.history, props.history])
-  
-  const [people, setPeople] = useState(data)
 
-  return userSession === null ? (
-    <Fragment>
-      <Loader
-        loadingMsg={"Authentification ..."}
-        styling={{textAlign: 'center', color: '#FFFFFF'}}
-      />
-    </Fragment>
+   // To open Modal
+   const openModal = event => {
+    console.log('show');
+    setShowModal(prevent => !prevent)
+    console.log(showModal);
+  }
+
+  // To close Modal
+  const closeModal = event => {
+    console.log('show');
+    setShowModal(prevent => !prevent)
+    console.log(showModal);
+  }
+
+  return showModal === true ? (
+    <Modal showModal={showModal} setShowModal={setShowModal} >
+      <div className="container">
+        <p className="close" onClick={closeModal}>Fermer la fenêtre</p>
+      <Create />
+      </div>
+    </Modal>
   ) : (
-    <main>
-      <section className='container'>
-        <h3>{people.length} birthdays today</h3>
-        <Logout userData={userData}/>
-        <People people={people} />
-        <button onClick={() => setPeople([])}>clear all</button>
-      </section>
-    </main>
+    <Fragment>
+    <div className="container">
+    <Logout userData={userData} />
+    <h3>{`Vous avez ${friends.length} amis enregistrés`}</h3>
+      {friends.map((friend) => {
+        const { id, firstName, lastName, birthDate, fileUrl } = friend;
+        return (
+          <article key={id} className='person'>
+            <div className="person__avatar">
+              <img src={fileUrl} alt={firstName} />
+            </div>
+            <div className="person__infos">
+              <h4>{firstName + ' ' +lastName}</h4>
+              <p>{birthDate}</p>
+            </div>
+            <div className="person__icons">
+              <button onClick={updateFriend}><RiPencilLine/></button>
+              <button onClick={() => deleteFriend(friend)}><RiDeleteBin2Line/></button>
+            </div>
+          </article>
+        );
+      })}
+        <Button className="btn" type="button" onClick={openModal}>
+            Ajouter un Anniversaire
+        </Button>
+    </div>
+    </Fragment>
   )
 }
 

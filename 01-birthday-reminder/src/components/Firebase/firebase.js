@@ -1,6 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import 'firebase/storage';
 
 const config = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -17,6 +18,7 @@ class Firebase {
         this.auth = app.auth();
         // Firestore Cloud gestionnaire noSQL fourni par Firebase
         this.db = app.firestore();
+        this.storage = app.storage();
     }
 
     // Insriptions
@@ -35,7 +37,33 @@ class Firebase {
 
     /*Exemple fourni par la Doc de Firebase :
     https://firebase.google.com/docs/firestore/data-model */
+    // user = uid => this.db.doc(`users/${uid}`)
     user = uid => this.db.doc(`users/${uid}`);
+
+    // Add friend
+    addFriend = (firstName, lastName, birthDate, fileUrl) => {
+   
+        // Identification par "id" du user authentifié
+        let userLogged = this.auth.currentUser.uid
+        // console.log(userLogged);
+
+        this.db.collection('users').doc(userLogged)
+        .collection('friends').doc(document.id).set({ firstName, lastName, birthDate, fileUrl })
+        console.log("friend added");
+    }
+
+    getAllFriends = () => {
+
+        let userLogged = this.auth.currentUser.uid
+
+        this.db.collection('users').doc(userLogged).collection('friends').get().then((snapshot) => {
+            snapshot.docs.forEach(doc => {
+            //   console.log('forEach');
+            //   console.log(doc.data());
+              doc.data();
+            })
+        })
+    }
 }
 
 export default Firebase;

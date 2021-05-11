@@ -1,14 +1,13 @@
 /* LOGOUT SWITCH */
 .logoutContainer {
     display: flex;
-    justify-content: flex-end;
-    margin-bottom: 30px;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-bottom: 1rem;
 }
 .logoutContainer p {
-  display: flex;
-  justify-content: flex-start;
   text-align: left;
-  margin-right: 5rem;
+  padding-top: 0.3em;
 }
   
 .switch {

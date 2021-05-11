@@ -3,10 +3,14 @@ import React from 'react';
 import './button.css';
 
 const Button = ({
-    children, type, event, name,
+    children,
+    type,
+    onClick,
+    event,
+    name
   }) => (
     <div>
-      <button type={type} onClick={event} className="btn" name={name}>
+      <button type={type} onClick={onClick} className="btn" name={name}>
         {children}
       </button>
     </div>
