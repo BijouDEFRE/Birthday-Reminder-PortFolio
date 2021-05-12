@@ -57,16 +57,6 @@ const List = props => {
     .doc(userAuth)
     .collection('friends').doc(friend.id).delete()
   }
-  // To update Friends
-  function updateFriend(friend) {
-    console.log(friend.id)
-    openModal()
-    app
-    .firestore()
-    .collection('users')
-    .doc(userAuth)
-    .collection('friends').doc(friend.id).set({})
-  }
   
   useEffect(() => {
     // To listen if there is a autenticated user

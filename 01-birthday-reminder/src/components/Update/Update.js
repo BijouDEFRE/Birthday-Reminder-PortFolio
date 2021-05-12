@@ -5,45 +5,30 @@ import "./update.css";
 
 const Update = (props) => {
 
-  console.log(props)
+  // console.log(props)
 
   const firebase = useContext(FirebaseContext);
   // const [friend, setFriend] = useState([])
   const [firstName, setFirstName] = useState(props.friendData.firstName);
   const [lastName, setLastName] = useState(props.friendData.lastName);
   const [birthDate, setBirthDate] = useState(props.friendData.birthDate);
+  const [friendId, setFriendId] = useState(props.friendData.id);
   const [profilImage, setProfilImage] = useState("");
   const [fileUrl, setFileUrl] = useState(props.friendData.fileUrl);
 
-  console.log(firstName, lastName, birthDate, fileUrl);
+  console.log(props.friendData.id)
 
-  const firstNameChange = (event) => {
+  const updateFriend = () => {
+    console.log(friendId);
+    firebase.revealFriend(firstName, lastName, birthDate, fileUrl, friendId)
     setFirstName('')
-    setFirstName(event.target.value)
-  }
-  const lastNameChange = (event) => {
     setLastName('')
-    setLastName(event.target.value)
-  }
-  const birthDateChange = (event) => {
     setBirthDate('')
-    setBirthDate(event.target.value)
-  }
-  // const fileUrlChange = (event) => {
-  //   setFileUrl('')
-  //   setFileUrl(event.target.value)
-  // }
-  
-  // const updateFriend = () => {
-
-  //   // firebase.addFriend(firstName, lastName, birthDate, fileUrl)
-  //   setFirstName('')
-  //   setLastName('')
-  //   setBirthDate('')
-  //   setProfilImage('')
-  //   props.friendData()
-  //   props.closeModal()
-  // };
+    setProfilImage('')
+    setFriendId('')
+    // props.friendData()
+    props.closeModal()
+  };
 
   const onFileChange = async (event) => {
 
@@ -53,6 +38,7 @@ const Update = (props) => {
     const fileRef = storageRef.child(file.name);
     await fileRef.put(file);
     setFileUrl(await fileRef.getDownloadURL());
+    alert(`image ${fileUrl} téléchargée avec succés`);
     console.log(fileUrl);
   }
 
@@ -64,19 +50,19 @@ const Update = (props) => {
           type="text" required="required"
           placeholder={props.friendData.firstName}
           value={firstName}
-          onChange={firstNameChange}
+          onChange={(event) => setFirstName(event.target.value)}
         />
         <input
           type="text" required="required"
           placeholder={props.friendData.lastName}
           value={lastName}
-          onChange={lastNameChange}
+          onChange={(event) => setLastName(event.target.value)}
         />
         <input
           type="date" required="required"
           placeholder={props.friendData.birthDate}
           value={birthDate}
-          onChange={birthDateChange}
+          onChange={(event) => setBirthDate(event.target.value)}
         />
         <input
           type="file"
@@ -86,8 +72,8 @@ const Update = (props) => {
         />
         <button
         className="btn"
-        // onClick={updateFriend}
-        >Ajouter</button>
+        onClick={updateFriend}
+        >Modifier</button>
       </div>
     </div>
   );

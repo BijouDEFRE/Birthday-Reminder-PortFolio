@@ -64,6 +64,18 @@ class Firebase {
             })
         })
     }
+
+    revealFriend = (firstName, lastName, birthDate, fileUrl, friendId) => {
+        console.log(`Je suis ${firstName + lastName + birthDate + fileUrl + friendId}`)
+   
+        // // Identification par "id" du user authentifié
+        // let userLogged = this.auth.currentUser.uid
+        // // console.log(userLogged);
+
+        // this.db.collection('users').doc(userLogged)
+        // .collection('friends').doc(friendId).set({})
+        // console.log("friend updated");
+    }
 }
 
 export default Firebase;
