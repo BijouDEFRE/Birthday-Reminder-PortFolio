@@ -19,7 +19,7 @@ const Create = (props) => {
     setFirstName('')
     setLastName('')
     setBirthDate('')
-    setProfilImage('');
+    setProfilImage('')
     props.closeModal()
   };
 
@@ -32,7 +32,7 @@ const Create = (props) => {
     await fileRef.put(file);
     setFileUrl(await fileRef.getDownloadURL());
     console.log(fileUrl);
-  }
+  };
 
   return (
     <div className="create">

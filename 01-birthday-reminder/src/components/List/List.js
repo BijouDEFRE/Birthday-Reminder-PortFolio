@@ -8,6 +8,7 @@ import Logout from '../Logout/Logout';
 import Loader from '../Loader/Loader';
 import Button from '../Button/Button';
 import Create from '../Create/Create';
+import Update from '../Update/Update';
 import Modal from '../Modal/Modal';
 import UploadFriendModal from '../Modal/UploadFriendModal';
 
@@ -29,6 +30,7 @@ const List = props => {
   const [friends, setFriends] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [friendData, setFriendData] = useState({})
 
   useEffect(() => {
     // To get friends for users account
@@ -98,22 +100,33 @@ const List = props => {
   }, [userSession, firebase, firebase.history, props.history])
 
    // To open Modal
-   const openModal = event => {
+   const openModal = () => {
     // console.log('show');
     setShowModal(true)
     // console.log(showModal);
   }
 
   // To close Modal
-  const closeModal = event => {
+  const closeModal = () => {
     // console.log('show');
     setShowModal(false)
     // console.log(showModal);
   }
 
    // To open UploadModal
-   const openUploadModal = () => {
+   const openUploadModal = (friend) => {
+
+    setFriendData({
+      id: friend.id,
+      birthDate: friend.birthDate,
+      fileUrl: friend.fileUrl,
+      firstName: friend.firstName,
+      lastName: friend.lastName
+    })
     setShowUpdateModal(true)
+    setTimeout(function() {
+      // console.log(friendData);
+    }, 2000)
   }
 
   // To close UploadModal
@@ -132,10 +145,11 @@ const List = props => {
     )
   } else if (showUpdateModal) {
     return (
-      <UploadFriendModal showUpdateModal={showUpdateModal}>
+      <UploadFriendModal showUpdateModal={showUpdateModal} friendData={friendData}>
         <div className="container">
           <p className="close" onClick={closeUploadModal}>Fermer la fenêtre</p>
-          <Create closeModal={closeModal}/>
+          <h3 className="modalTitle">{`Modification les informations de ${friendData.firstName}`}</h3>
+          <Update friendData={friendData} closeModal={closeModal}/>
         </div>
       </UploadFriendModal>
     )
