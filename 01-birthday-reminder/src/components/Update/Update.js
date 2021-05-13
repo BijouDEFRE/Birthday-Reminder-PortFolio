@@ -5,7 +5,7 @@ import "./update.css";
 
 const Update = (props) => {
 
-  // console.log(props)
+  console.log(props)
 
   const firebase = useContext(FirebaseContext);
   // const [friend, setFriend] = useState([])
@@ -13,13 +13,13 @@ const Update = (props) => {
   const [lastName, setLastName] = useState(props.friendData.lastName);
   const [birthDate, setBirthDate] = useState(props.friendData.birthDate);
   const [friendId, setFriendId] = useState(props.friendData.id);
-  const [profilImage, setProfilImage] = useState("");
+  const [profilImage, setProfilImage] = useState('');
   const [fileUrl, setFileUrl] = useState(props.friendData.fileUrl);
 
   console.log(props.friendData.id)
 
   const updateFriend = () => {
-    console.log(friendId);
+    // console.log(friendId);
     firebase.revealFriend(firstName, lastName, birthDate, fileUrl, friendId)
     setFirstName('')
     setLastName('')
@@ -66,7 +66,7 @@ const Update = (props) => {
         />
         <input
           type="file"
-          placeholder={props.friendData.fileUrl}
+          placeholder={props.friendData.profilImage}
           value={profilImage}
           onChange={onFileChange}
         />

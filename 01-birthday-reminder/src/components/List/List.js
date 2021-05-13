@@ -10,7 +10,7 @@ import Button from '../Button/Button';
 import Create from '../Create/Create';
 import Update from '../Update/Update';
 import Modal from '../Modal/Modal';
-import UploadFriendModal from '../Modal/UploadFriendModal';
+import UpdateModal from '../Modal/UpdateModal';
 
 import { RiPencilLine } from 'react-icons/ri'
 import { RiDeleteBin2Line } from 'react-icons/ri'
@@ -46,7 +46,7 @@ const List = props => {
       }))
       setFriends(newFriends)
     })
-  }, [])
+  }, [userAuth])
 
   // To delete Friends
   function deleteFriend(friend) {
@@ -104,14 +104,15 @@ const List = props => {
   }
 
    // To open UploadModal
-   const openUploadModal = (friend) => {
+   const openUpdateModal = (friend) => {
 
     setFriendData({
       id: friend.id,
-      birthDate: friend.birthDate,
-      fileUrl: friend.fileUrl,
       firstName: friend.firstName,
-      lastName: friend.lastName
+      lastName: friend.lastName,
+      birthDate: friend.birthDate,
+      profilImage: friend.profilImage,
+      fileUrl: friend.fileUrl,
     })
     setShowUpdateModal(true)
     setTimeout(function() {
@@ -120,7 +121,7 @@ const List = props => {
   }
 
   // To close UploadModal
-  const closeUploadModal = () => {
+  const closeUpdateModal = () => {
     setShowUpdateModal(false)
   }
 
@@ -135,13 +136,13 @@ const List = props => {
     )
   } else if (showUpdateModal) {
     return (
-      <UploadFriendModal showUpdateModal={showUpdateModal} friendData={friendData}>
+      <UpdateModal showUpdateModal={showUpdateModal} friendData={friendData}>
         <div className="container">
-          <p className="close" onClick={closeUploadModal}>Fermer la fenêtre</p>
-          <h3 className="modalTitle">{`Modification les informations de ${friendData.firstName}`}</h3>
-          <Update friendData={friendData} closeModal={closeModal}/>
+          <p className="close" onClick={closeUpdateModal}>Fermer la fenêtre</p>
+          <h3 className="modalTitle">{`Informations sur ${friendData.firstName} ${friendData.lastName}`}</h3>
+          <Update friendData={friendData} closeModal={closeUpdateModal}/>
         </div>
-      </UploadFriendModal>
+      </UpdateModal>
     )
   } else {
     return (
@@ -161,8 +162,8 @@ const List = props => {
                   <p>{birthDate}</p>
                 </div>
                 <div className="person__icons">
-                  <button onClick={() => openUploadModal(friend)}><RiPencilLine/></button>
-                  <button onClick={() => deleteFriend(friend)}><RiDeleteBin2Line/></button>
+                  <button onClick={() => openUpdateModal(friend)}><RiPencilLine/></button>
+                  <button onClick={() => { if (window.confirm('Cette action est irréversible !!!')) deleteFriend(friend)}}><RiDeleteBin2Line/></button>
                 </div>
               </article>
             );

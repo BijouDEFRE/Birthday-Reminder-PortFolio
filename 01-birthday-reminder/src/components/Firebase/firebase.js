@@ -49,7 +49,7 @@ class Firebase {
 
         this.db.collection('users').doc(userLogged)
         .collection('friends').doc(document.id).set({ firstName, lastName, birthDate, fileUrl })
-        console.log("friend added");
+        console.log(`friend ${firstName + lastName} added`);
     }
 
     getAllFriends = () => {
@@ -66,15 +66,15 @@ class Firebase {
     }
 
     revealFriend = (firstName, lastName, birthDate, fileUrl, friendId) => {
-        console.log(`Je suis ${firstName + lastName + birthDate + fileUrl + friendId}`)
+        console.table(`Je suis ${firstName + lastName + birthDate + fileUrl + friendId}`)
    
-        // // Identification par "id" du user authentifié
-        // let userLogged = this.auth.currentUser.uid
-        // // console.log(userLogged);
+        // Identification par "id" du user authentifié
+        let userLogged = this.auth.currentUser.uid
+        // console.log(userLogged);
 
-        // this.db.collection('users').doc(userLogged)
-        // .collection('friends').doc(friendId).set({})
-        // console.log("friend updated");
+        this.db.collection('users').doc(userLogged)
+        .collection('friends').doc(friendId).update({ firstName, lastName, birthDate, fileUrl })
+        console.log(`friend ${firstName + lastName} updated`);
     }
 }
 
