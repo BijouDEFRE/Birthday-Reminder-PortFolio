@@ -12,6 +12,9 @@ const Create = (props) => {
   const [birthDate, setBirthDate] = useState("");
   const [profilImage, setProfilImage] = useState('');
   const [fileUrl, setFileUrl] = useState(null);
+
+  // Get today date
+  let today = new Date().toISOString().split('T')[0]
   
   const createFriend = () => {
 
@@ -54,6 +57,7 @@ const Create = (props) => {
           type="date" required="required"
           placeholder="Date d'anniversaire"
           value={birthDate}
+          max={today}
           onChange={(event) => setBirthDate(event.target.value)}
         />
         <input

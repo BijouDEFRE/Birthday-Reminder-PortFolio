@@ -12,6 +12,8 @@ import Update from '../Update/Update';
 import Modal from '../Modal/Modal';
 import UpdateModal from '../Modal/UpdateModal';
 
+// Import tools
+import ReactTooltip from 'react-tooltip';
 import { RiPencilLine } from 'react-icons/ri'
 import { RiDeleteBin2Line } from 'react-icons/ri'
 import './list.css';
@@ -162,14 +164,25 @@ const List = props => {
                   <p>{birthDate}</p>
                 </div>
                 <div className="person__icons">
-                  <button onClick={() => openUpdateModal(friend)}><RiPencilLine/></button>
-                  <button onClick={() => { if (window.confirm('Cette action est irréversible !!!')) deleteFriend(friend)}}><RiDeleteBin2Line/></button>
+                  <button data-for="Modifier"
+                  onClick={() => openUpdateModal(friend)}>
+                    <RiPencilLine/>
+                    </button>
+                  <ReactTooltip id="Modifier" place="left" type="success" effect="solid">Edit</ReactTooltip>
+
+                <div className="person__infos">
+                  <button data-tip data-for="Supprimer"
+                  onClick={() => { if (window.confirm('Cette action est définitive !!!')) deleteFriend(friend)}}>
+                    <RiDeleteBin2Line/>
+                    </button>
+                  <ReactTooltip id="Supprimer" place="right" type="error" effect="solid">Delete</ReactTooltip>
+                </div>
                 </div>
               </article>
             );
           })}
             <Button className="btn" type="button" onClick={openModal}>
-                Ajouter un Anniversaire
+                Ajouter un anniversaire
             </Button>
         </div>
       </Fragment>

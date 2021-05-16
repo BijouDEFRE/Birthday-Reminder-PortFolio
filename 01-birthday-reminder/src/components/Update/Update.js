@@ -18,6 +18,9 @@ const Update = (props) => {
 
   console.log(props.friendData.id)
 
+  // Get today date
+  let today = new Date().toISOString().split('T')[0]
+
   const updateFriend = () => {
     // console.log(friendId);
     firebase.revealFriend(firstName, lastName, birthDate, fileUrl, friendId)
@@ -62,6 +65,7 @@ const Update = (props) => {
           type="date" required="required"
           placeholder={props.friendData.birthDate}
           value={birthDate}
+          max={today}
           onChange={(event) => setBirthDate(event.target.value)}
         />
         <input
