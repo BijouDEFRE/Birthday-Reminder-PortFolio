@@ -69,7 +69,7 @@ class Firebase {
     }
 
     revealFriend = (firstName, lastName, birthDate, fileUrl, friendId) => {
-        console.table(`Je suis ${firstName} /:/ ${lastName} /:/ ${birthDate} /:/ ${fileUrl} /:/ ${friendId}`)
+        console.log(`Je suis ${firstName} /:/ ${lastName} /:/ ${birthDate} /:/ ${fileUrl} /:/ ${friendId}`)
    
         // Identification par "id" du user authentifié
         let userLogged = this.auth.currentUser.uid
@@ -80,7 +80,7 @@ class Firebase {
         .catch((error) => {
             console.log(error)
         })
-        console.log(`friend ${firstName + lastName} updated`);
+        console.log(`friend ${firstName}, ${lastName} updated`);
     }
 }
 

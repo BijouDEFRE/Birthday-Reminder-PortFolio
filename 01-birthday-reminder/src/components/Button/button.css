@@ -16,5 +16,9 @@
 }
 
 .btn:hover {
-    background-color: var(--clr-primary-6);
+    background-color: var(--clr-primary-1);
+}
+
+.btn-disabled {
+    background: var(--clr-grey-1);
 }

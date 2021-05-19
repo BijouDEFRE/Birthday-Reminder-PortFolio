@@ -35,7 +35,6 @@
 }
 
 .form button {
-
   cursor: pointer;
 }
 
@@ -45,4 +44,12 @@
 
 .btn:hover {
   background-color: var(--clr-primary-6);
+}
+
+.btn:hover {
+  background-color: var(--clr-primary-6);
+}
+
+.btn-disabled {
+  background: var(--clr-grey-1);
 }

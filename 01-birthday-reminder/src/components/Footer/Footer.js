@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <footer>
             <div className="footer-container">
-                <p>Projet réalisé pour agrémenter mon Portfolio - 2021 - d'après une idée de John SMILGA - avec le concours de Nicolas PLAZA</p>
+                <p>Projet réalisé pour agrémenter mon Portfolio - Frédéric Creuseveau 2021</p>
             </div>
         </footer>
     )

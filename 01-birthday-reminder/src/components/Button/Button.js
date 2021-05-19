@@ -4,13 +4,15 @@ import './button.css';
 
 const Button = ({
     children,
+    styling,
     type,
     onClick,
     event,
+    disabled,
     name
-  }) => (
+}) => (
     <div>
-      <button type={type} onClick={onClick} className="btn" name={name}>
+      <button type={type} onClick={onClick} className="btn" style={styling} name={name} disabled={disabled}>
         {children}
       </button>
     </div>

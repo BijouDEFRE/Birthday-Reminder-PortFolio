@@ -9,6 +9,7 @@ import List from '../List/List';
 import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
 import ForgetPassword from '../ForgetPassword/ForgetPassword';
+import ErrorPage from '../ErrorPage/ErrorPage';
 
 function App() {
   
@@ -23,6 +24,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/forgetpassword" component={ForgetPassword} />
+          {/* <Route component={ErrorPage}/> */}
           </Fragment>
         </Switch>
 

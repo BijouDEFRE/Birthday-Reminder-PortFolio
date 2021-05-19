@@ -7,10 +7,10 @@
     height: 50px;
     -webkit-animation: spin 1s linear infinite;
     animation: spin 1s linear infinite;
-    margin: 40px auto 20px;
+    margin: 30px auto 20px;
   }
   
-  .loaderText {
+  .loaderText p {
     text-align: center;
     color: var(--clr-primary-1);
   }

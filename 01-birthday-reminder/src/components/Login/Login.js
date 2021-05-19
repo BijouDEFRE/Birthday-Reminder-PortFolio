@@ -25,14 +25,6 @@ const Login = (props) => {
         }
     }, [password, email, btn])
     
-    /* version avec une fonction en dehors */
-    /*const handleEmail = event => {
-        setEmail(event.target.value);
-    } */
-    
-    /* version avec le setter directement invoqué dans une fonction fléchée */
-    /* <input onChange={event => setPassword(event.target.value)} value={password}..... */
-
     const handleSubmit = event => {
         event.preventDefault();
 
