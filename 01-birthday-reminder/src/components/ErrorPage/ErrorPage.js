@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import Oups from '../../assets/404.png'
-import './errorPage.css'
+import Oups from '../../assets/images/404.png';
+import './errorPage.css';
 
 const ErrorPage = () => {
   return (
