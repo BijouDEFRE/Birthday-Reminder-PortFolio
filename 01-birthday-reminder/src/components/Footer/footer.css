@@ -1,7 +1,8 @@
 .footer-container{
     text-align: center;
-    padding-top: 1.8em;
+    /* padding-top: 0.8em; */
   }
   .footer-container p{
+    font-size: 1.2em;
     color: var(--clr-white);
   }

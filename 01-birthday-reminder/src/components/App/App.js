@@ -1,5 +1,5 @@
 // Functionals import
-import React, { Fragment } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Components import
 import Header from '../Header/Header';
@@ -18,14 +18,14 @@ function App() {
       <Header />
 
         <Switch>
-          <Fragment>
+          
           <Route exact path="/" component={Home} />
           <Route path="/list" component={List} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/forgetpassword" component={ForgetPassword} />
-          {/* <Route component={ErrorPage}/> */}
-          </Fragment>
+          <Route component={ErrorPage} />
+          
         </Switch>
 
       <Footer />

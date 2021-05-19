@@ -202,18 +202,18 @@ const List = props => {
             // today.getDate()(vaut: 18) est inférieur à dayofBirthDay(vaut: 19)
             // Si c'est vrai, alors ajoute un an à currentyear. Sinon, met la valeur de currentyear(2021) à birthday
             today.getMonth() >= monthOfBirthday && today.getDate()+1 > dayOfBirthday ? (
-              birthDay.setFullYear(currentYear + 1),
-              console.log(`%c Dans le if current year + 1 et ${firstName} est né le ${birthDate}`, 'color: red'),
-              console.log(`%c Dans le if 'current' vaut ${currentYear}`, 'color: red'),
-              console.log(`%c Dans le if 'birthDay' vaut ${birthDay}`, 'color: red')
+              birthDay.setFullYear(currentYear + 1)
+              // console.log(`%c Dans le if current year + 1 et ${firstName} est né le ${birthDate}`, 'color: red'),
+              // console.log(`%c Dans le if 'current' vaut ${currentYear}`, 'color: red'),
+              // console.log(`%c Dans le if 'birthDay' vaut ${birthDay}`, 'color: red')
             )
             :
             (
-              birthDay.setFullYear(currentYear),
-              console.log(`%c Aujourd'hui nous sommes le ${today.getDate()}, ${today.getMonth()+1}`, 'background: #222; color: white'),
-              console.log(`%c Dans le else current year et ${firstName} est né le ${birthDate}`, 'background: #666; color: white'),
-              console.log(`%c Dans le else 'current' vaut ${currentYear}`, 'background: #666; color: white'),
-              console.log(`%c Dans le else 'birthDay' vaut ${birthDay}`, 'background: #666; color: white')
+              birthDay.setFullYear(currentYear)
+              // console.log(`%c Aujourd'hui nous sommes le ${today.getDate()}, ${today.getMonth()+1}`, 'background: #222; color: white'),
+              // console.log(`%c Dans le else current year et ${firstName} est né le ${birthDate}`, 'background: #666; color: white'),
+              // console.log(`%c Dans le else 'current' vaut ${currentYear}`, 'background: #666; color: white'),
+              // console.log(`%c Dans le else 'birthDay' vaut ${birthDay}`, 'background: #666; color: white')
             )
               
             // To calculate the result in ms and convertinfg into days

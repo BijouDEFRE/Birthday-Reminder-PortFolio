@@ -6,7 +6,7 @@ import './errorPage.css'
 const ErrorPage = () => {
   return (
     <div className="error">
-      <img src={Oups} alt=""/>
+      <img src={Oups} alt="error page"/>
     </div>
   )
 }
